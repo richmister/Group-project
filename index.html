@@ -20,20 +20,31 @@
       <section class="form-container">
         <form class="expense-form">
           <label for="budget-total">Budget Total</label>
-          <input type="text" id="budget-total" placeholder="Enter Amount" />
+          <input
+            type="text"
+            id="budget-total"
+            placeholder="Enter Amount"
+            class="form-items"
+          />
           <label for="expense-type">Expense Type</label>
-          <select name="" id="expense-type">
+          <select name="" id="expense-type" class="form-items">
             <option value="entertainment">Entertainment</option>
             <option value="food">Food</option>
             <option value="clothing">Clothing</option>
             <option value="bills">Bills</option>
           </select>
           <label for="expense-amount">Expense Amount</label>
-          <input type="text" id="expense-amount" placeholder="Enter Amount" />
+          <input
+            type="text"
+            id="expense-amount"
+            placeholder="Enter Amount"
+            class="form-items"
+          />
           <button>Submit</button>
         </form>
       </section>
       <section class="expense-list">
+        <p>Remaining Balance</p>
         <p>Entertainment</p>
         <p>Food</p>
         <p>Clothing</p>
