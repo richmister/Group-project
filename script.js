@@ -31,24 +31,28 @@ expenseForm.addEventListener("submit", (e) => {
   let total = balance.innerHTML;
   console.log(type, amount);
   if (type === "entertainment") {
-    checkFunds(amount);
-    entertainment.textContent = `$${amount}`;
-    balance.textContent = total - amount;
-    expenseForm.reset();
+    if (checkFunds(amount)) {
+      entertainment.textContent = `$${amount}`;
+      balance.textContent = total - amount;
+      expenseForm.reset();
+    }
   } else if (type === "food") {
-    checkFunds(amount);
-    food.textContent = `$${amount}`;
-    balance.textContent = total - amount;
-    expenseForm.reset();
+    if (checkFunds(amount)) {
+      food.textContent = `$${amount}`;
+      balance.textContent = total - amount;
+      expenseForm.reset();
+    }
   } else if (type === "clothing") {
-    checkFunds(amount);
-    clothing.textContent = `$${amount}`;
-    balance.textContent = total - amount;
-    expenseForm.reset();
+    if (checkFunds(amount)) {
+      clothing.textContent = `$${amount}`;
+      balance.textContent = total - amount;
+      expenseForm.reset();
+    }
   } else if (type === "bills") {
-    checkFunds(amount);
-    bills.textContent = `$${amount}`;
-    balance.textContent = total - amount;
+    if (checkFunds(amount)) {
+      bills.textContent = `$${amount}`;
+      balance.textContent = total - amount;
+    }
   }
 });
 
@@ -56,6 +60,7 @@ const checkFunds = (amount) => {
   let total = balance.innerHTML;
   if (total - amount < 0) {
     overLoad.style.display = "flex";
-    expenseForm.reset();
+    return false;
   }
+  return true;
 };
