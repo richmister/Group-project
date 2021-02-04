@@ -10,6 +10,7 @@ let clothing = document.querySelector(".clothing");
 let bills = document.querySelector(".bills");
 let noFunds = document.querySelector(".no-funds");
 let overLoad = document.querySelector(".overload");
+let escape = document.querySelector(".escape");
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -64,3 +65,6 @@ const checkFunds = (amount) => {
   }
   return true;
 };
+escape.addEventListener("click", () => {
+  overLoad.style.display = "none";
+});
