@@ -30,6 +30,7 @@
             id="budget-total"
             placeholder="Enter Amount"
             class="form-items"
+            required
           />
           <button>Update Budget</button>
         </form>
@@ -49,8 +50,9 @@
             id="expense-amount"
             placeholder="Enter Amount"
             class="form-items"
+            required
           />
-          <button>Submit</button>
+          <button class="submit-button">Submit</button>
         </form>
       </section>
 
@@ -60,10 +62,12 @@
         <p>Clothing:<span class="clothing">0.00</span></p>
         <p>Bills:<span class="bills">0.00</span></p>
       </section>
+      <section class="overload">
+        <div class="no-funds">
+          <p>You Do Not Have Enough Funds</p>
+        </div>
+      </section>
     </main>
-    <div class="no-funds">
-      <p>You Do Not Have Enough Funds</p>
-    </div>
 
     <script src="script.js"></script>
   </body>
