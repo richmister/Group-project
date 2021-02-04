@@ -68,3 +68,8 @@ body {
   border-radius: 10px;
   font-weight: bold;
 }
+
+.no-funds {
+  display: none;
+  z-index: 1;
+}
