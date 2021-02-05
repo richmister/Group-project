@@ -30,8 +30,10 @@ expenseForm.addEventListener("submit", (e) => {
   let snapshot = new FormData(expenseForm);
   let amount = parseInt(snapshot.get("expenseamount"));
   let type = snapshot.get("expensetype");
-  totalSpent += amount;
-  moneySpent.textContent = `$${totalSpent}`;
+  if (checkFunds(amount)) {
+    totalSpent += amount;
+    moneySpent.textContent = `$${totalSpent}`;
+  }
   let total = balance.innerHTML;
 
   if (type === "entertainment") {
