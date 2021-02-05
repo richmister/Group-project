@@ -11,6 +11,7 @@ let bills = document.querySelector(".bills");
 let noFunds = document.querySelector(".no-funds");
 let overLoad = document.querySelector(".overload");
 let escape = document.querySelector(".escape");
+let moneySpent = document.querySelector(".money-spent");
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -33,6 +34,7 @@ expenseForm.addEventListener("submit", (e) => {
   console.log(type, amount);
   if (type === "entertainment") {
     if (checkFunds(amount)) {
+      totalSpent(amount);
       entertainment.textContent = `$${amount}`;
       balance.textContent = total - amount;
       expenseForm.reset();
@@ -68,3 +70,9 @@ const checkFunds = (amount) => {
 escape.addEventListener("click", () => {
   overLoad.style.display = "none";
 });
+
+const totalSpent = (amount) => {
+  let total = 0;
+  let spent = +total + +amount;
+  moneySpent.textContent = `$${spent}`;
+};
