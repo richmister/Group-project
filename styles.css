@@ -8,11 +8,20 @@ body {
 }
 
 .header {
-  height: 50px;
+  height: 55px;
   margin: 0%;
-
+  background-color: black;
   display: flex;
   justify-content: center;
+  border-bottom: 3px solid rgba(145, 144, 144, 0.445);
+}
+
+img {
+  height: 50px;
+  width: 65px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
 }
 .title {
   font-size: 20px;
@@ -151,6 +160,9 @@ select {
   border-left: 2px solid rgba(180, 179, 179, 0.527);
   border-bottom: 2px solid rgba(180, 179, 179, 0.527);
 }
+.total-expense {
+  color: coral;
+}
 
 .overload {
   display: none;
@@ -173,4 +185,33 @@ select {
 }
 
 @media only screen and (min-width: 768px) {
+  .header {
+    justify-content: flex-end;
+  }
+  .title {
+    margin-right: 10px;
+  }
+  .balance-container {
+    width: 200px;
+    height: 200px;
+  }
+  .main {
+    display: flex;
+  }
+  .form-section {
+    height: 100vh;
+    flex: 1;
+    position: relative;
+  }
+  .form-container {
+    position: absolute;
+    bottom: 150px;
+    height: 250px;
+    width: 400px;
+  }
+  .expense-list {
+    top: 50px;
+    flex: 1;
+    width: 250px;
+  }
 }
