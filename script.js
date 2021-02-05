@@ -12,29 +12,30 @@ let noFunds = document.querySelector(".no-funds");
 let overLoad = document.querySelector(".overload");
 let escape = document.querySelector(".escape");
 let moneySpent = document.querySelector(".money-spent");
+let totalSpent = 0;
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let formData = new FormData(budgetForm);
   let amount = formData.get("amount");
-  console.log(amount);
+
   balance.textContent = `${amount}`;
   budgetForm.reset();
   budgetForm.style.display = "none";
   expenseForm.style.display = "flex";
-  console.dir(balance);
 });
 
 expenseForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let snapshot = new FormData(expenseForm);
-  let amount = snapshot.get("expenseamount");
+  let amount = parseInt(snapshot.get("expenseamount"));
   let type = snapshot.get("expensetype");
+  totalSpent += amount;
+  moneySpent.textContent = `$${totalSpent}`;
   let total = balance.innerHTML;
-  console.log(type, amount);
+
   if (type === "entertainment") {
     if (checkFunds(amount)) {
-      totalSpent(amount);
       entertainment.textContent = `$${amount}`;
       balance.textContent = total - amount;
       expenseForm.reset();
@@ -70,9 +71,3 @@ const checkFunds = (amount) => {
 escape.addEventListener("click", () => {
   overLoad.style.display = "none";
 });
-
-const totalSpent = (amount) => {
-  let total = 0;
-  let spent = +total + +amount;
-  moneySpent.textContent = `$${spent}`;
-};
