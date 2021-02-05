@@ -14,16 +14,19 @@
   <body>
     <header class="header">
       <h1 class="title">Budget Buddy</h1>
-      <img src="money-image.jpg" alt="money-pic" height="100px" width="200px" />
+      <!-- <img src="money-image.jpg" alt="money-pic" height="100px" width="200px" /> -->
     </header>
 
     <main class="main">
-      <div>
-        <p>Remaining Balance:$<span class="balance">0.00</span></p>
+      <div class="balance-container">
+        <p>
+          Remaining Balance:<br /><span class="money">$</span
+          ><span class="balance">0.00</span>
+        </p>
       </div>
       <section class="form-container">
         <form class="budget-form">
-          <label for="budget-total">Budget Total</label>
+          <label for="budget-total">Enter your weekly budget</label>
           <input
             name="amount"
             type="text"
@@ -36,14 +39,14 @@
         </form>
 
         <form class="expense-form">
-          <label for="expense-type">Expense Type</label>
+          <label for="expense-type">Choose your expense type</label>
           <select name="expensetype" id="expense-type" class="form-items">
             <option value="entertainment">Entertainment</option>
             <option value="food">Food</option>
             <option value="clothing">Clothing</option>
             <option value="bills">Bills</option>
           </select>
-          <label for="expense-amount">Expense Amount</label>
+          <label for="expense-amount">Enter your expense amount</label>
           <input
             name="expenseamount"
             type="text"
@@ -57,10 +60,12 @@
       </section>
 
       <section class="expense-list">
-        <p>Entertainment:<span class="entertainment">0.00</span></p>
-        <p>Food:<span class="food">0.00</span></p>
-        <p>Clothing:<span class="clothing">0.00</span></p>
-        <p>Bills:<span class="bills">0.00</span></p>
+        <p class="expenses">
+          Entertainment:<span class="entertainment">0.00</span>
+        </p>
+        <p class="expenses">Food:<span class="food">0.00</span></p>
+        <p class="expenses">Clothing:<span class="clothing">0.00</span></p>
+        <p class="expenses">Bills:<span class="bills">0.00</span></p>
       </section>
       <section class="overload">
         <div class="no-funds">
