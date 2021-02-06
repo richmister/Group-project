@@ -5,7 +5,7 @@ body {
   position: relative;
   height: 100vh;
   background-image: linear-gradient(rgb(27, 27, 27), rgb(61, 61, 61));
-  animation: fadeInAnimation ease 3s;
+  animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -51,14 +51,16 @@ img {
   background-image: linear-gradient(rgb(61, 61, 61), rgb(27, 27, 27));
   margin: 10px;
   color: rgb(86, 233, 86);
-  border: 3px solid rgba(145, 144, 144, 0.445);
+  border: 4px solid rgba(145, 144, 144, 0.445);
+  border-top: none;
+  border-bottom: none;
   border-radius: 10px;
   height: 85px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(86, 233, 86, 0.705);
 }
 
 .balance-text {
@@ -83,17 +85,18 @@ img {
   margin: 10px;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 175px;
-  width: 170px;
+  justify-content: space-around;
+  height: 200px;
+  width: 175px;
   text-align: center;
 }
 
 .budget-label {
   font-size: 20px;
-  color: #695486;
+
+  color: rgba(228, 141, 10, 0.938);
   text-shadow: 2px 2px #02020200;
-  border: 3px solid rgba(145, 144, 144, 0.445);
+  border: 2px solid rgba(145, 144, 144, 0.445);
   background-image: linear-gradient(rgb(27, 27, 27), rgb(61, 61, 61));
   border-radius: 15px;
   padding: 10px;
@@ -104,19 +107,21 @@ img {
 input[type="text"],
 textarea {
   padding: 3px;
-  color: rgb(86, 233, 86);
+  color: lightgray;
   background-color: rgb(90, 90, 90);
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
   width: 150px;
   border-color: gray;
   border-radius: 5px;
 }
 
+.escape,
 .update-button,
 .submit-button {
   padding: 10px;
   margin: 5px;
+  font-size: 14px;
   color: rgb(180, 179, 179);
   background-color: green;
   border: none;
@@ -124,6 +129,21 @@ textarea {
   width: 150px;
   display: flex;
   justify-content: center;
+  transition-duration: 0.4s;
+}
+
+.escape:hover,
+.submit-button:hover,
+.update-button:hover {
+  color: green;
+  background-color: rgb(180, 179, 179);
+  box-shadow: 0 0 12px rgba(86, 233, 86, 0.705);
+}
+.escape:active,
+.submit-button:active,
+.update-button:active {
+  color: green;
+  background-color: black;
 }
 
 .expense-form {
@@ -135,7 +155,7 @@ textarea {
   height: 225px;
   width: 170px;
   text-align: center;
-  animation: fadeInAnimation ease 3s;
+  animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -151,9 +171,9 @@ textarea {
 
 .expense-text {
   font-size: 17px;
-  color: #695486;
+  color: rgba(228, 141, 10, 0.938);
   text-shadow: 2px 2px #02020200;
-  border: 3px solid rgba(145, 144, 144, 0.445);
+  border: 2px solid rgba(145, 144, 144, 0.445);
   background-image: linear-gradient(rgb(27, 27, 27), rgb(61, 61, 61));
   border-radius: 15px;
   padding: 10px;
@@ -163,15 +183,18 @@ textarea {
 
 select {
   padding: 3px;
-  color: rgb(86, 233, 86);
+  color: lightgray;
   background-color: rgb(90, 90, 90);
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
   width: 150px;
-  border-color: gray;
+  border-color: rgba(180, 179, 179, 0.527);
   border-radius: 5px;
 }
 
+.expense-list {
+  margin: 10px;
+}
 .expenses {
   color: #9154e6;
   background-color: rgba(19, 19, 19, 0.562);
@@ -185,7 +208,19 @@ select {
   border-bottom: 2px solid rgba(180, 179, 179, 0.527);
 }
 .total-expense {
-  color: coral;
+  color: rgb(2, 151, 238);
+}
+.money-spent {
+  color: rgb(202, 12, 12);
+  font-weight: 100;
+}
+
+.entertainment,
+.food,
+.clothing,
+.bills {
+  font-weight: 100;
+  color: rgb(185, 185, 31);
 }
 
 .overload {
@@ -193,27 +228,71 @@ select {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
-  border: black solid 5px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .no-funds {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: red;
+  color: lightgray;
+  border: 2px solid rgba(180, 179, 179, 0.527);
+  background-image: linear-gradient(rgb(27, 27, 27), rgb(61, 61, 61));
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 .inspo {
   display: none;
 }
 
+.credit {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background-color: black;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.credit-para {
+  font-size: 10px;
+  color: lightgray;
+  margin: 5px 10px;
+}
+
 @media only screen and (min-width: 768px) {
+  .main {
+    display: flex;
+  }
+
   .header {
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .title {
@@ -221,42 +300,91 @@ select {
   }
 
   .balance-container {
+    align-items: center;
     width: 200px;
     height: 200px;
+    border: 5px solid rgba(145, 144, 144, 0.445);
+    border-top: none;
+    border-bottom: none;
+    box-shadow: 0 0 15px rgba(86, 233, 86, 0.705);
   }
-
-  .main {
-    display: flex;
+  .balance-text {
+    font-size: 30px;
+  }
+  .balance,
+  .money {
+    font-size: 35px;
   }
 
   .form-section {
-    height: 100vh;
     flex: 1;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .form-container {
-    position: absolute;
-    bottom: 75px;
-    height: 250px;
+    border: 5px solid rgba(145, 144, 144, 0.445);
+    height: 300px;
     width: 400px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 0 15px rgba(228, 141, 10, 0.829);
   }
 
+  .budget-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250px;
+    width: 300px;
+    text-align: center;
+    justify-content: space-around;
+  }
+
+  .expense-form {
+    margin: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 270px;
+    width: 150px;
+  }
   .expense-list {
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin-right: 20px;
     align-items: center;
+    justify-content: center;
+    border: 5px solid rgba(180, 179, 179, 0.267);
+    background-image: linear-gradient(rgb(61, 61, 61), rgb(27, 27, 27));
+    border-radius: 10px;
+    padding: 10px;
+    height: 500px;
+    box-shadow: 0 0 15px #9154e6e5;
   }
 
   .expenses {
-    margin: 10px 10px;
-    padding: 10px 20px;
-    width: 400px;
+    padding: 20px 40px;
+    margin: 5px;
+    width: 300px;
+    font-size: 20px;
   }
 
   .total-expense {
-    /* margin-bottom: 50px; */
+    padding: 30px 10px;
+    margin: 2px;
+    font-size: 30px;
+    box-shadow: 0 0 15px rgb(2, 151, 238);
+  }
+  .entertainment,
+  .food,
+  .clothing,
+  .bills {
+    font-size: 20px;
   }
 
   .inspo {
