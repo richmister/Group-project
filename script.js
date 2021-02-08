@@ -13,6 +13,10 @@ let overLoad = document.querySelector(".overload");
 let escape = document.querySelector(".escape");
 let moneySpent = document.querySelector(".money-spent");
 let totalSpent = 0;
+let entTotal = 0;
+let foodTotal = 0;
+let clothingTotal = 0;
+let billsTotal = 0;
 
 budgetForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -38,25 +42,30 @@ expenseForm.addEventListener("submit", (e) => {
 
   if (type === "entertainment") {
     if (checkFunds(amount)) {
-      entertainment.textContent = `$${amount}`;
+      entTotal += amount;
+      entertainment.textContent = `$${entTotal}`;
       balance.textContent = total - amount;
       expenseForm.reset();
     }
   } else if (type === "food") {
     if (checkFunds(amount)) {
-      food.textContent = `$${amount}`;
+      foodTotal += amount;
+      food.textContent = `$${foodTotal}`;
       balance.textContent = total - amount;
       expenseForm.reset();
     }
   } else if (type === "clothing") {
     if (checkFunds(amount)) {
-      clothing.textContent = `$${amount}`;
+      clothingTotal += amount;
+      clothing.textContent = `$${clothingTotal}`;
       balance.textContent = total - amount;
       expenseForm.reset();
     }
   } else if (type === "bills") {
     if (checkFunds(amount)) {
-      bills.textContent = `$${amount}`;
+      billsTotal += amount;
+
+      bills.textContent = `$${billsTotal}`;
       balance.textContent = total - amount;
     }
   }
