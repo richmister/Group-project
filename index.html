@@ -5,70 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Group project</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet"> 
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    
     <header class="header">
-      <h1 class="title">Personal budget calculator</h1>
-      <img src="images (1).jpg" alt="money-pic"  />
-      
+      <img src="images (1).jpg" alt="money-pic" />
+      <h1 class="title">Weekly Budget Calculator</h1>
     </header>
 
     <main class="main">
       <section class="form-section">
-      <div class="balance-container">
-        <p>
-          <span class="balance-text">Remaining Balance</span><br /><span class="money">$</span
-          ><span class="balance">0.00</span>
-        </p>
-      </div>
-      <section class="form-container">
-        <form class="budget-form">
-          <label class="budget-label" for="budget-total">Enter your weekly budget</label>
-          <input
-            name="amount"
-            type="text"
-            id="budget-total"
-            placeholder="Enter Amount"
-            class="form-items"
-           
-            required
-          />
-          <button class="update-button">Update Budget</button>
-        </form>
+        <div class="balance-container">
+          <p>
+            <span class="balance-text">Remaining Balance</span><br /><span
+              class="money"
+              >$</span
+            ><span class="balance">0.00</span>
+          </p>
+        </div>
+        <section class="form-container">
+          <form class="budget-form">
+            <label class="budget-label" for="budget-total"
+              >Enter your weekly budget</label
+            >
+            <input
+              name="amount"
+              type="text"
+              id="budget-total"
+              placeholder="Enter Amount"
+              class="form-items"
+              required
+            />
+            <button class="update-button">Update My Budget!</button>
+          </form>
 
-        <form class="expense-form">
-          <label for="expense-type" class="expense-text">Choose your expense type</label>
-          <select name="expensetype" id="expense-type" class="select-items">
-            <option value="entertainment">Entertainment</option>
-            <option value="food">Food</option>
-            <option value="clothing">Clothing</option>
-            <option value="bills">Bills</option>
-          </select>
-          <label for="expense-amount" class="expense-text">Enter your expense amount</label>
-          <input
-            name="expenseamount"
-            type="text"
-            id="expense-amount"
-            placeholder="Enter Amount"
-            class="form-items"
-            required
-          />
-          <button class="submit-button">Submit</button>
-        </form>
+          <form class="expense-form">
+            <label for="expense-type" class="expense-text"
+              >Choose your expense type</label
+            >
+            <select name="expensetype" id="expense-type" class="select-items">
+              <option value="entertainment">Entertainment</option>
+              <option value="food">Food</option>
+              <option value="clothing">Clothing</option>
+              <option value="bills">Bills</option>
+            </select>
+            <label for="expense-amount" class="expense-text"
+              >Enter your expense amount</label
+            >
+            <input
+              name="expenseamount"
+              type="text"
+              id="expense-amount"
+              placeholder="Enter Amount"
+              class="form-items"
+              required
+            />
+            <button class="submit-button">Submit</button>
+          </form>
+        </section>
       </section>
-    </section>
       <section class="expense-list">
-          <p class="expenses total-expense">Total Spent:<span class="money-spent">0.00</span></p></p>  
+        <div class="total-spent-container">
+          <p>
+            <span class="total-expense total-expense">Total Spent</span
+            ><br /><span class="money-spent">$0.00</span>
+          </p>
+        </div>
+        <div class="expense-div">
           <p class="expenses">
             Entertainment:<span class="entertainment">0.00</span>
           </p>
           <p class="expenses">Food:<span class="food">0.00</span></p>
           <p class="expenses">Clothing:<span class="clothing">0.00</span></p>
           <p class="expenses">Bills:<span class="bills">0.00</span></p>
+        </div>
       </section>
       <section class="overload">
         <div class="no-funds">
@@ -76,9 +90,11 @@
           <button class="escape">Back</button>
         </div>
       </section>
-    <div class="credit">
-      <p class="credit-para">created by dominick valente  richard mcintosh  and jeff johnston</p>
-    </div>
+      <div class="credit">
+        <p class="credit-para">
+          created by dominick valente richard mcintosh and jeff johnston
+        </p>
+      </div>
     </main>
 
     <script src="script.js"></script>
